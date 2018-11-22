@@ -12,25 +12,33 @@
         android:id="@+id/buttonInfo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:text="Info"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/buttonMap"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:text="MAP"
+        app:layout_constraintStart_toEndOf="@+id/buttonInfo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/buttonList"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginRight="42dp"
         android:text="List"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonInfo"
+        app:layout_constraintStart_toEndOf="@+id/buttonMap"
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
@@ -47,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonInfo"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMap"
         app:layout_constraintVertical_bias="0.0">
 
     </FrameLayout>
