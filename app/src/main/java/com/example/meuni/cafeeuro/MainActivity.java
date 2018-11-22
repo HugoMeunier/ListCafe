@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnInfo;
     private ListFragment listFragment;
     private InfoFragment infoFragment;
-    //mise en place de commentaire
+    //mise en place de commentaire sur db
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
