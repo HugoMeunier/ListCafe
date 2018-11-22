@@ -12,9 +12,11 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnList;
     Button btnInfo;
+    Button btnMap;
     private ListFragment listFragment;
     private InfoFragment infoFragment;
-    //mise en place de commentaire
+    private MapFragment mapFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
         btnList = findViewById(R.id.buttonList);
         btnInfo = findViewById(R.id.buttonInfo);
+        btnMap = findViewById(R.id.buttonMap);
+
         btnList.setVisibility(View.VISIBLE);
         btnInfo.setVisibility(View.VISIBLE);
+        btnMap.setVisibility(View.VISIBLE);
 
         listFragment = new ListFragment();
 
@@ -42,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
             //listFragment.setArguments(getIntent().getExtras()); //donne tout ce qu'il faut à l'argument au cas où
             infoFragment = new InfoFragment();
             replaceFragment(infoFragment);
+        });
+
+        btnMap.setOnClickListener((view) -> {
+            //listFragment.setArguments(getIntent().getExtras()); //donne tout ce qu'il faut à l'argument au cas où
+            mapFragment = new MapFragment();
+            replaceFragment(mapFragment);
         });
 
     }
