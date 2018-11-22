@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnMap;
     private ListFragment listFragment;
     private InfoFragment infoFragment;
-    private MapFragment mapFragment;
 
 
     @Override

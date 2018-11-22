@@ -15,7 +15,7 @@ public class InfoFragment extends android.support.v4.app.Fragment {
     public InfoFragment() {
         // Required empty public constructor
     }
-
+    //database
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
