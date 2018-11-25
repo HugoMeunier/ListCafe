@@ -9,14 +9,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-    <View
-        android:id="@+id/view2"
-        android:background="@color/colorPrimaryDark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"/>
+        android:text="Voici l’application qui vous permet de trouver les cafés les moins chers de Paris.  Vous pouvez désormais prendre un moment pour vous, relaxant et redynamisant, qui égaiera votre journée en beauté. Et tout ça au prix le plus réduit !  With Coffee and Love,  Hugo et Corentin"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:typeface="normal"
+        android:visibility="visible" />
 
 </FrameLayout>
