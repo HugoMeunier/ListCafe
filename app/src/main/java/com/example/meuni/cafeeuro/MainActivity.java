@@ -8,16 +8,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     Button btnList;
     Button btnInfo;
     Button btnMap;
     private ListFragment listFragment;
     private InfoFragment infoFragment;
-    private MapFragment mapFragment;
+    MapsFragment mapFragment;
 
+
+    private GoogleMap map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,18 +72,19 @@ public class MainActivity extends AppCompatActivity {
             replaceFragment(infoFragment);
         });
 
+
         btnMap.setOnClickListener((view) -> {
+            mapFragment = new MapsFragment();
+            Bundle args = new Bundle();
+            mapFragment.setArguments(args);
+            replaceFragment(mapFragment);
 
-            Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-            startActivity(intent);
-
-
-            //listFragment.setArguments(getIntent().getExtras()); //donne tout ce qu'il faut à l'argument au cas où
-            //mapFragment = new MapFragment();
-            //replaceFragment(mapFragment);
         });
 
     }
+
+
+
 
     // Replace current Fragment with the destination Fragment.
     public void addFragment(Fragment fragment) {
@@ -85,4 +108,5 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
     }
+
 }
