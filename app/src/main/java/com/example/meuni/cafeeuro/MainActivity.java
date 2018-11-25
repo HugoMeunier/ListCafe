@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.meuni.cafeeuro.models.Cafe;
+import com.example.meuni.cafeeuro.models.ListCafe;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,33 +21,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class MainActivity extends AppCompatActivity {
 
     Button btnList;
     Button btnInfo;
     Button btnMap;
     TextView TextResult;
+    ListCafe listCafeFireBase;
 
     private ListFragment listFragment;
     private InfoFragment infoFragment;
     private MapFragment mapFragment;
 
-
-    Retrofit retrofit = new Retrofit.Builder() //declaration utilisation retrofit
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://chivas-container.herokuapp.com/")
-            .build();
-
-    WebService service = retrofit.create(WebService.class);
-
-
     //communication avec FireBase
     FirebaseDatabase database;
-    private CafeDao cafeDao;
-    private static final String PATH = "listcafe-86b40";
+    private static final String PATH = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,33 +51,35 @@ public class MainActivity extends AppCompatActivity {
         btnInfo.setVisibility(View.VISIBLE);
         btnMap.setVisibility(View.VISIBLE);
 
-        listFragment = new ListFragment();
-
-       // cafeDao = AppDatabase.getAppDatabase(this).getCafeDao();
-       // cafeDao.insert(new Cafe());
-
         //communication avec FireBase
-
         database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(PATH);
-        cafeDao = AppDatabase.getAppDatabase(this).getCafeDao();
-        Cafe bar = new Cafe(102, "ko");
-        myRef.setValue(bar);
-        cafeDao.getAll();
-        //TextResult.setText(cafeDao.getAll().toString());
 
+        //recupere la liste de tout les cafes sur firebase
+        listCafeFireBase = new ListCafe();
+        database.getReference(PATH).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                listCafeFireBase = dataSnapshot.getValue(ListCafe.class);
+                TextResult.setText(listCafeFireBase.toString());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                //   taskSource.setError(firebaseError.toException());
+            }
+        });
 
+        //fragment
+        listFragment = new ListFragment();
         //cree dès le départ le fragment dans l'activity sans rien faire
         listFragment.setArguments(getIntent().getExtras()); //donne tout ce qu'il faut à l'argument au cas où
         addFragment(listFragment);
 
+        //action des boutons
         btnList.setOnClickListener((view) -> {
             //listFragment.setArguments(getIntent().getExtras()); //donne tout ce qu'il faut à l'argument au cas où
             listFragment = new ListFragment();
             replaceFragment(listFragment);
-            Cafe c = new Cafe(12, "ko");
-            cafeDao.insert(c);
-            myRef.setValue("Hey");
         });
 
         btnInfo.setOnClickListener((view) -> {
@@ -109,25 +100,19 @@ public class MainActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                GenericTypeIndicator<Cafe> cafeListType = new GenericTypeIndicator<Cafe>() {};
-                Cafe serverCafe = dataSnapshot.getValue(cafeListType);
-                if (serverCafe == null){
+                GenericTypeIndicator<ListCafe> cafea = new GenericTypeIndicator<ListCafe>() {};
+                ListCafe serverCafe = dataSnapshot.getValue(cafea);
+                if (serverCafe == null) {
                     Toast.makeText(MainActivity.this, "null ", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     TextResult.setText(serverCafe.toString());
                 }
-
             }
-
-
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
             }
         });
-
 
     }
 
@@ -151,6 +136,5 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frameLayout, destFragment);
         // Commit the Fragment replace action.
         fragmentTransaction.commit();
-
     }
 }

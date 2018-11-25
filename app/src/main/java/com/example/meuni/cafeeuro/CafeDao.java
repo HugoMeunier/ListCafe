@@ -21,4 +21,7 @@ public interface CafeDao {
     @Delete
     void delete(Cafe cafe);
 
+    @Query("DELETE FROM cafe")
+    void nukeTable();
+
 }
