@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "906474620629",
+    "firebase_url": "https://listcafedatabase.firebaseio.com",
+    "project_id": "listcafedatabase",
+    "storage_bucket": "listcafedatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906474620629:android:49e87c7536be8efd",
+        "android_client_info": {
+          "package_name": "com.example.meuni.cafeeuro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906474620629-6vrs9b3bpadi704sdb70boog0tb8htdu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMJUwvrq9bLDdT6Um3cNZta9E5xt0s9tg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
