@@ -83,21 +83,10 @@ public class MainActivity extends AppCompatActivity {
         listFragment = listFragment.newInstance(cafes);
         addFragment(listFragment);
 
-        //fragment
-        /*
-        listFragment = new ListFragment();
-        //cree dès le départ le fragment dans l'activity sans rien faire
-        listFragment.setArguments(getIntent().getExtras()); //donne tout ce qu'il faut à l'argument au cas où
-        addFragment(listFragment);
-        */
 
         //action des boutons
         btnList.setOnClickListener((view) -> {
-            //listFragment.setArguments(getIntent().getExtras()); //donne tout ce qu'il faut à l'argument au cas où
-            //listFragment = new ListFragment();
-
             replaceFragment(listFragment);
-
         });
 
         btnInfo.setOnClickListener((view) -> {
