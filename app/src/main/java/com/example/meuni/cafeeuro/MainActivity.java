@@ -21,6 +21,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnList;
@@ -32,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private ListFragment listFragment;
     private InfoFragment infoFragment;
     private MapFragment mapFragment;
+    private ArrayList<Cafe> cafes = new ArrayList<>();
+
+
 
     //communication avec FireBase
     FirebaseDatabase database;
@@ -62,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 listCafeFireBase = dataSnapshot.getValue(ListCafe.class);
                 TextResult.setText(listCafeFireBase.toString());
+                for (int i =0; i<listCafeFireBase.getListCafe().size(); i++){
+                    cafes.add(listCafeFireBase.getListCafe().get(i));
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -69,17 +78,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //gestion de l'affichage des cafes
+        listFragment = listFragment.newInstance(cafes);
+        addFragment(listFragment);
+
         //fragment
+        /*
         listFragment = new ListFragment();
         //cree dès le départ le fragment dans l'activity sans rien faire
         listFragment.setArguments(getIntent().getExtras()); //donne tout ce qu'il faut à l'argument au cas où
         addFragment(listFragment);
+        */
 
         //action des boutons
         btnList.setOnClickListener((view) -> {
             //listFragment.setArguments(getIntent().getExtras()); //donne tout ce qu'il faut à l'argument au cas où
-            listFragment = new ListFragment();
+            //listFragment = new ListFragment();
+
             replaceFragment(listFragment);
+
         });
 
         btnInfo.setOnClickListener((view) -> {
@@ -101,11 +119,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<ListCafe> cafea = new GenericTypeIndicator<ListCafe>() {};
-                ListCafe serverCafe = dataSnapshot.getValue(cafea);
-                if (serverCafe == null) {
+                ListCafe listCafeFireBase = dataSnapshot.getValue(cafea);
+                if (listCafeFireBase == null) {
                     Toast.makeText(MainActivity.this, "null ", Toast.LENGTH_LONG).show();
                 } else {
-                    TextResult.setText(serverCafe.toString());
+                    TextResult.setText(listCafeFireBase.toString());
+                    for (int i =0; i<listCafeFireBase.getListCafe().size(); i++){
+                        cafes.add(listCafeFireBase.getListCafe().get(i));
+                    }
                 }
             }
             @Override
