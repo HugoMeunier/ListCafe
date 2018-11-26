@@ -1,6 +1,7 @@
 package com.example.meuni.cafeeuro;
 
 import android.content.Intent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase database;
     private static final String PATH = "";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +53,12 @@ public class MainActivity extends AppCompatActivity {
         btnList = findViewById(R.id.buttonList);
         btnInfo = findViewById(R.id.buttonInfo);
         btnMap = findViewById(R.id.buttonMap);
+
         TextResult = findViewById(R.id.TextEditResult);
 
         btnList.setVisibility(View.VISIBLE);
         btnInfo.setVisibility(View.VISIBLE);
+        btnMap.setVisibility(View.VISIBLE);
         btnMap.setVisibility(View.VISIBLE);
 
         //communication avec FireBase
@@ -94,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
             infoFragment = new InfoFragment();
             replaceFragment(infoFragment);
         });
+
+
 
         btnMap.setOnClickListener((view) -> {
             Intent intent = new Intent(MainActivity.this, MapsActivity.class);
