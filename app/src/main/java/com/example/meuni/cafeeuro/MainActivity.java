@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -25,8 +26,18 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class MainActivity extends AppCompatActivity {
+import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity  {
+
+
+    private static final String BASE_URL = "https://www.data.gouv.fr/fr/datasets/r/700734c8-1cbd-4d26-8f95-da045be62f08";
+    private RequestQueue queue;
     Button btnList;
     Button btnInfo;
     Button btnMap;
@@ -43,12 +54,23 @@ public class MainActivity extends AppCompatActivity {
     //communication avec FireBase
     FirebaseDatabase database;
     private static final String PATH = "";
+    MapsFragment mapFragment;
+    private ArrayList<Cafe> cafeArrayList= new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
         setContentView(R.layout.activity_main);
+
+
+        queue = Volley.newRequestQueue(this);
+
+        loadCafeFromServer();
 
         btnList = findViewById(R.id.buttonList);
         btnInfo = findViewById(R.id.buttonInfo);
@@ -130,6 +152,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+        btnMap.setOnClickListener((view) -> {
+            mapFragment = new MapsFragment();
+            Bundle args = new Bundle();
+            mapFragment.setArguments(args);
+            replaceFragment(mapFragment);
+
+        });
+
+    }
+
+
+    private void loadCafeFromServer() {
+        String url = BASE_URL;
+
+        GsonRequest getCafeRequest = new GsonRequest<Cafe>(url,
+                Cafe.class,
+                null,
+                cafe -> {
+                    if (cafe != null) {
+                        //
+                        cafeArrayList.add(cafe);
+
+                    }
+                },
+
+
+                error -> Toast.makeText(MainActivity.this, "Unable to load cafe", Toast.LENGTH_LONG).show());
+
+        queue.add(getCafeRequest);
     }
 
     // Replace current Fragment with the destination Fragment.
@@ -153,4 +206,5 @@ public class MainActivity extends AppCompatActivity {
         // Commit the Fragment replace action.
         fragmentTransaction.commit();
     }
+
 }

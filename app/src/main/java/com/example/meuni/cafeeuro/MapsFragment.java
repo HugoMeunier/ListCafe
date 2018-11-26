@@ -17,12 +17,17 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
+
     private MapView mapView;
     private GoogleMap map ;
     private MainActivity main ;
 
-    public  MapFragment() {
+
+    public  MapsFragment() {
     }
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,17 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_map, container,false) ;
         mapView = (MapView) viewGroup.findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
+
+
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_maps, container,false) ;
+        mapView = (MapView) viewGroup.findViewById(R.id.map);
+        mapView.onCreate(savedInstanceState);
+
         mapView.onResume();
         try {
             MapsInitializer.initialize(main.getApplicationContext());
@@ -43,6 +59,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mapView.getMapAsync(this);
         return viewGroup;
     }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
@@ -51,8 +68,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         map.setBuildingsEnabled(true);
         // Add a marker in Sydney and move the camera
         LatLng gardanneLocation = new LatLng(43.4445612, 5.4797211);
+
+        // Add a marker in Sydney and move the camera
+        LatLng gardanneLocation = new LatLng(43.4445612, 5.4797211);
+
+
         map.addMarker(new MarkerOptions().position(gardanneLocation).title("Mines St Etienne - Georges Charpak Provence"));
         map.moveCamera(CameraUpdateFactory.newLatLng(gardanneLocation));
         map.moveCamera(CameraUpdateFactory.zoomTo(10));
     }
+
 }
