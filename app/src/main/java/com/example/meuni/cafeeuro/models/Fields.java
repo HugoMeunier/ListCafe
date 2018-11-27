@@ -13,7 +13,7 @@ public class Fields {
     private String adresse;
     private int arrondissement;
     private String date;
-    private List<Integer> geoloc;
+    private List<Double> geoloc;
     private String nom_du_cafe;
     private String prix_compotoire;
     private String prix_salle;
@@ -24,8 +24,8 @@ public class Fields {
         this.arrondissement = 1;
         this.date = "date";
         this.geoloc = new ArrayList<>();
-        this.geoloc.add(1);
-        this.geoloc.add(2);
+        this.geoloc.add(1.0);
+        this.geoloc.add(2.0);
         this.nom_du_cafe = "nom_du_cafe";
         this.prix_compotoire = "1";
         this.prix_salle = "1";
@@ -71,7 +71,7 @@ public class Fields {
     }
 
     @Ignore
-    public Fields(String adresse, int arrondissement, String date, List<Integer> geoloc, String nom_du_cafe, String prix_compotoire, String prix_salle, String prix_terasse) {
+    public Fields(String adresse, int arrondissement, String date, List<Double> geoloc, String nom_du_cafe, String prix_compotoire, String prix_salle, String prix_terasse) {
         this.adresse = adresse;
         this.arrondissement = arrondissement;
         this.date = date;
@@ -106,11 +106,11 @@ public class Fields {
         this.date = date;
     }
 
-    public List<Integer> getGeoloc() {
+    public List<Double> getGeoloc() {
         return geoloc;
     }
 
-    public void setGeoloc(List<Integer> geoloc) {
+    public void setGeoloc(List<Double> geoloc) {
         this.geoloc = geoloc;
     }
 
