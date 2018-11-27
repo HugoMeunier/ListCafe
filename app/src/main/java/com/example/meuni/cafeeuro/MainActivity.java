@@ -1,8 +1,8 @@
 package com.example.meuni.cafeeuro;
 
+import android.os.Bundle;
 import android.app.ActionBar;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -39,14 +39,13 @@ public class MainActivity extends AppCompatActivity  {
     private ListFragment listFragment;
     private InfoFragment infoFragment;
     private MapsFragment mapsFragment;
-    private ArrayList<Cafe> cafes = new ArrayList<>();
+    private ArrayList<Cafe> cafes = new ArrayList<Cafe>();
 
 
 
     //communication avec FireBase
     FirebaseDatabase database;
     private static final String PATH = "";
-    private ArrayList<Cafe> cafeArrayList= new ArrayList<>();
 
     //set action bar
     @Override
@@ -113,11 +112,12 @@ public class MainActivity extends AppCompatActivity  {
         });
 
         //gestion de l'affichage des cafes
-        listFragment = listFragment.newInstance(cafes);
-        addFragment(listFragment);
+        //listFragment = listFragment.newInstance(cafes);
+        //addFragment(listFragment);
 
         //action des boutons
         btnList.setOnClickListener((view) -> {
+            listFragment = listFragment.newInstance(cafes);
             replaceFragment(listFragment);
         });
 
@@ -131,8 +131,16 @@ public class MainActivity extends AppCompatActivity  {
         btnMap.setOnClickListener((view) -> {
             mapsFragment = new MapsFragment();
             Bundle args = new Bundle();
+            args.putSerializable("tagCafe",cafes);
             mapsFragment.setArguments(args);
-            replaceFragment(mapsFragment);
+
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.frameLayout, mapsFragment);
+            fragmentTransaction.addToBackStack("tagCafe");
+            fragmentTransaction.commit();
+            fragmentTransaction.show(mapsFragment);
         });
 
 
