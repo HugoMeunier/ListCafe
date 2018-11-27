@@ -1,5 +1,6 @@
 package com.example.meuni.cafeeuro;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +8,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -43,11 +48,37 @@ public class MainActivity extends AppCompatActivity  {
     private static final String PATH = "";
     private ArrayList<Cafe> cafeArrayList= new ArrayList<>();
 
+    //set action bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //gere les actions de l'action bar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                // User chose the "Settings" item, show the app settings UI...
+                Toast.makeText(MainActivity.this, "action settings", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.action_favorite:
+                Toast.makeText(MainActivity.this, "action favorite", Toast.LENGTH_LONG).show();
+                // User chose the "Favorite" action, mark the current item as a favorite...
+                //TODO : rafraichir les données en récupérant les données sur firebase
+                return true;
+            default: // If we got here, the user's action was not recognized.
+                Toast.makeText(MainActivity.this, "default", Toast.LENGTH_LONG).show();
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
         btnList = findViewById(R.id.buttonList);
@@ -124,14 +155,7 @@ public class MainActivity extends AppCompatActivity  {
                 // Failed to read value
             }
         });
-
-
-
-
     }
-
-
-
 
     // Replace current Fragment with the destination Fragment.
     public void addFragment(Fragment fragment) {
@@ -141,7 +165,6 @@ public class MainActivity extends AppCompatActivity  {
         fragmentTransaction.commit();
         fragmentTransaction.show(fragment);
     }
-
 
     public void replaceFragment(Fragment destFragment) {
         // First get FragmentManager object.

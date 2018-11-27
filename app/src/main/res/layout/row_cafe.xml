@@ -2,15 +2,15 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="380dp"
-    android:layout_height="70dp">
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
 
     <TextView
         android:id="@+id/TextCafeName"
         android:layout_width="97dp"
         android:layout_height="0dp"
         android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/TextCafePlace"
@@ -21,26 +21,27 @@
 
     <TextView
         android:id="@+id/TextCafePlace"
-        android:layout_width="150dp"
+        android:layout_width="103dp"
         android:layout_height="0dp"
-        android:lineSpacingExtra="8sp"
         android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/TextCafePrice"
         app:layout_constraintStart_toEndOf="@+id/TextCafeName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/TextCafePrice"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
         android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TextCafePlace"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,4 +58,14 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/btn_star_big_on"
         tools:srcCompat="@tools:sample/avatars[1]" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TextCafePrice"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
