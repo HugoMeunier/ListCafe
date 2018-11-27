@@ -2,8 +2,6 @@ package com.example.meuni.cafeeuro.models;
 
 import android.arch.persistence.room.Ignore;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.List;
 

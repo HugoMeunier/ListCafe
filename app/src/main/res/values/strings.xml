@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">CafeEuro</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Map</string>
     <string name="map_activity">Map Activity</string>
     <string name="image_de_cafee">image de cafee</string>
+    <string name="details">Details</string>
+    <string name="map">MAP</string>
+    <string name="info">Info</string>
+    <string name="list">List</string>
+    <string name="textview">TextView</string>
+    <string name="voici_l_application_qui_vous_permet_de_trouver_les_caf_s_les_moins_chers_de_paris_vous_pouvez_d_sormais_prendre_un_moment_pour_vous_relaxant_et_redynamisant_qui_gaiera_votre_journ_e_en_beaut_et_tout_a_au_prix_le_plus_r_duit_with_coffee_and_love_hugo_et_corentin">Voici l’application qui vous permet de trouver les cafés les moins chers de Paris. Vous pouvez désormais prendre un moment pour vous, relaxant et redynamisant, qui égaiera votre journée en beauté. Et tout ça au prix le plus réduit ! With Coffee and Love, Hugo et Corentin</string>
 </resources>

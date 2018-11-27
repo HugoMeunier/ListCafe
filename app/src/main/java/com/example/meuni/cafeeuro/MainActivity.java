@@ -1,5 +1,6 @@
 package com.example.meuni.cafeeuro;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.content.Intent;
@@ -28,13 +29,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     Button btnList;
     Button btnInfo;
     Button btnMap;
     TextView TextResult;
     ListCafe listCafeFireBase;
+    //public Context context;
 
     private ListFragment listFragment;
     private InfoFragment infoFragment;
@@ -60,13 +62,23 @@ public class MainActivity extends AppCompatActivity  {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                // User chose the "Settings" item, show the app settings UI...
-                Toast.makeText(MainActivity.this, "action settings", Toast.LENGTH_LONG).show();
-                return true;
+                               return true;
             case R.id.action_favorite:
-                Toast.makeText(MainActivity.this, "action favorite", Toast.LENGTH_LONG).show();
-                // User chose the "Favorite" action, mark the current item as a favorite...
-                //TODO : rafraichir les données en récupérant les données sur firebase
+                Toast.makeText(MainActivity.this, "actualisation de la liste des cafés", Toast.LENGTH_LONG).show();
+                database.getReference(PATH).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        listCafeFireBase = dataSnapshot.getValue(ListCafe.class);
+                        TextResult.setText(listCafeFireBase.toString());
+                        for (int i =0; i<listCafeFireBase.getListCafe().size(); i++){
+                            cafes.add(listCafeFireBase.getListCafe().get(i));
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        //   taskSource.setError(firebaseError.toException());
+                    }
+                });
                 return true;
             default: // If we got here, the user's action was not recognized.
                 Toast.makeText(MainActivity.this, "default", Toast.LENGTH_LONG).show();
@@ -74,6 +86,7 @@ public class MainActivity extends AppCompatActivity  {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -54,6 +54,7 @@ public class ListFragment extends  android.support.v4.app.Fragment {
         CafeAdapter cafeAdapter = new CafeAdapter(cafes);
         rcvBottles.setAdapter(cafeAdapter);
 
+
         return view;
     }
 

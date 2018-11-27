@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".InfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Voici l’application qui vous permet de trouver les cafés les moins chers de Paris.  Vous pouvez désormais prendre un moment pour vous, relaxant et redynamisant, qui égaiera votre journée en beauté. Et tout ça au prix le plus réduit !  With Coffee and Love,  Hugo et Corentin"
+        android:text="@string/voici_l_application_qui_vous_permet_de_trouver_les_caf_s_les_moins_chers_de_paris_vous_pouvez_d_sormais_prendre_un_moment_pour_vous_relaxant_et_redynamisant_qui_gaiera_votre_journ_e_en_beaut_et_tout_a_au_prix_le_plus_r_duit_with_coffee_and_love_hugo_et_corentin"
         android:textSize="18sp"
         android:textStyle="italic"
         android:typeface="normal"
