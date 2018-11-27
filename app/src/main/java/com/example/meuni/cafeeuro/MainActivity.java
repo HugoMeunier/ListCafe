@@ -80,11 +80,12 @@ public class MainActivity extends AppCompatActivity  {
         });
 
         //gestion de l'affichage des cafes
-        listFragment = listFragment.newInstance(cafes);
-        addFragment(listFragment);
+        //listFragment = listFragment.newInstance(cafes);
+        //addFragment(listFragment);
 
         //action des boutons
         btnList.setOnClickListener((view) -> {
+            listFragment = listFragment.newInstance(cafes);
             replaceFragment(listFragment);
         });
 

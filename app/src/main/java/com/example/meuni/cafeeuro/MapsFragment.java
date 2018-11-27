@@ -88,7 +88,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         }
 
         map.moveCamera(CameraUpdateFactory.newLatLng(location));
-        map.moveCamera(CameraUpdateFactory.zoomTo(10));
+        map.moveCamera(CameraUpdateFactory.zoomTo(12));
 
 
     }
