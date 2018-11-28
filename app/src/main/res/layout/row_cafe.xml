@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidUnknownAttribute -->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -23,9 +24,8 @@
         android:id="@+id/TextCafeName"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:textColor="@color/colorAccent"
-        android:textSize="12sp"
-        android:textStyle="bold"
+        android:fadingEdge="horizontal|vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/TextCafePlace"
         app:layout_constraintStart_toEndOf="@+id/imageCoffee"

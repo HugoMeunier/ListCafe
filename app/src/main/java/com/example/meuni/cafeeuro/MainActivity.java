@@ -10,11 +10,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +28,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.PicassoProvider;
 
 import java.util.ArrayList;
 
@@ -36,14 +40,11 @@ public class MainActivity extends AppCompatActivity {
     Button btnMap;
     TextView TextResult;
     ListCafe listCafeFireBase;
-    //public Context context;
 
     private ListFragment listFragment;
     private InfoFragment infoFragment;
     private MapsFragment mapsFragment;
     private ArrayList<Cafe> cafes = new ArrayList<Cafe>();
-
-
 
     //communication avec FireBase
     FirebaseDatabase database;
@@ -96,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         btnList = findViewById(R.id.buttonList);
         btnInfo = findViewById(R.id.buttonInfo);
         btnMap = findViewById(R.id.buttonMap);
-
         TextResult = findViewById(R.id.TextEditResult);
 
         btnList.setVisibility(View.VISIBLE);

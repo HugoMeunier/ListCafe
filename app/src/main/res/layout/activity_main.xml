@@ -55,19 +55,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextEditResult"></FrameLayout>
+        app:layout_constraintTop_toBottomOf="@+id/TextEditResult">
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/TextEditResult"
         android:layout_width="0dp"
         android:layout_height="30dp"
+        android:layout_marginTop="16dp"
         android:text="@string/textview"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonInfo"
-        app:layout_constraintVertical_bias="0.0"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/buttonInfo"></TextView>
 
 
 </android.support.constraint.ConstraintLayout>

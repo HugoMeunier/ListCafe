@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -48,9 +49,10 @@ public class CafeAdapter extends RecyclerView.Adapter<CafeViewHolder> {
         holder.cafeName.setText(iconToDisplay.getFields().getNom_du_cafe());
         holder.cafePlace.setText(valueOf(iconToDisplay.getFields().getArrondissement()));
         holder.cafePrice.setText(String.format("%s €", valueOf(iconToDisplay.getFields().getPrix_compotoire())));
-       // Picasso.with(context).load("http://cdn.journaldev.com/wp-content/uploads/2016/11/android-image-picker-project-structure.png").into(holder.cafeImage.setImageDrawable());
-       // holder.cafeImage.setVisibility(View.VISIBLE);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            Picasso.get().load("https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/280px-A_small_cup_of_coffee.JPG").placeholder(R.drawable.ic_launcher_background).resize(70,70)
+                    .centerCrop().into(holder.cafeImage);
+        }
     }
 
 
