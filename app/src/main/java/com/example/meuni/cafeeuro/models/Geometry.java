@@ -2,10 +2,11 @@ package com.example.meuni.cafeeuro.models;
 
 import android.arch.persistence.room.Ignore;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Geometry {
+public class Geometry implements Serializable{
 
     private List<Integer> coordinates;
     private String type;

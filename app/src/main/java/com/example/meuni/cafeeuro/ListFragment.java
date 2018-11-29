@@ -46,14 +46,13 @@ public class ListFragment extends  android.support.v4.app.Fragment {
         RecyclerView rcvBottles = view.findViewById(R.id.recyclerViewCafe);
         rcvBottles.setHasFixedSize(true);
 
-        //get a linearlayout and assign it to the recyclerv
+        //get a linearlayout and assign it to the recyclerview
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         rcvBottles.setLayoutManager(layoutManager);
 
         //get an adapter and assign it to the recycle view
         CafeAdapter cafeAdapter = new CafeAdapter(cafes);
         rcvBottles.setAdapter(cafeAdapter);
-
 
         return view;
     }
@@ -65,7 +64,6 @@ public class ListFragment extends  android.support.v4.app.Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
 }
 
 

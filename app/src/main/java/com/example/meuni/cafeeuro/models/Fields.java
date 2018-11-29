@@ -2,11 +2,12 @@ package com.example.meuni.cafeeuro.models;
 
 import android.arch.persistence.room.Ignore;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Fields {
+public class Fields implements Serializable{
 
     private String adresse;
     private int arrondissement;

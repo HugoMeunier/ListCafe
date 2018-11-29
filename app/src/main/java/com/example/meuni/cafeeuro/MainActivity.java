@@ -1,22 +1,13 @@
 package com.example.meuni.cafeeuro;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.app.ActionBar;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,12 +19,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.PicassoProvider;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     Button btnList;
     Button btnInfo;
@@ -46,57 +35,23 @@ public class MainActivity extends AppCompatActivity {
     private MapsFragment mapsFragment;
     private ArrayList<Cafe> cafes = new ArrayList<Cafe>();
 
+
+
     //communication avec FireBase
     FirebaseDatabase database;
     private static final String PATH = "";
-
-    //set action bar
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    //gere les actions de l'action bar
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                               return true;
-            case R.id.action_favorite:
-                Toast.makeText(MainActivity.this, "actualisation de la liste des cafés", Toast.LENGTH_LONG).show();
-                database.getReference(PATH).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        listCafeFireBase = dataSnapshot.getValue(ListCafe.class);
-                        TextResult.setText(listCafeFireBase.toString());
-                        for (int i =0; i<listCafeFireBase.getListCafe().size(); i++){
-                            cafes.add(listCafeFireBase.getListCafe().get(i));
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        //   taskSource.setError(firebaseError.toException());
-                    }
-                });
-                return true;
-            default: // If we got here, the user's action was not recognized.
-                Toast.makeText(MainActivity.this, "default", Toast.LENGTH_LONG).show();
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         btnList = findViewById(R.id.buttonList);
         btnInfo = findViewById(R.id.buttonInfo);
         btnMap = findViewById(R.id.buttonMap);
+
         TextResult = findViewById(R.id.TextEditResult);
 
         btnList.setVisibility(View.VISIBLE);
@@ -124,9 +79,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //gestion de l'affichage des cafes
-        //listFragment = listFragment.newInstance(cafes);
-        //addFragment(listFragment);
 
         //action des boutons
         btnList.setOnClickListener((view) -> {
@@ -142,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         btnMap.setOnClickListener((view) -> {
+
             mapsFragment = new MapsFragment();
             Bundle args = new Bundle();
             args.putSerializable("tagCafe",cafes);
@@ -176,8 +129,15 @@ public class MainActivity extends AppCompatActivity {
                 // Failed to read value
             }
         });
+
+
+
+
     }
 
+
+
+/*
     // Replace current Fragment with the destination Fragment.
     public void addFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -185,7 +145,8 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.frameLayout, fragment);
         fragmentTransaction.commit();
         fragmentTransaction.show(fragment);
-    }
+    }*/
+
 
     public void replaceFragment(Fragment destFragment) {
         // First get FragmentManager object.
