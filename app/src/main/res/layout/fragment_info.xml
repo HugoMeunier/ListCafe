@@ -12,6 +12,7 @@
         android:textSize="18sp"
         android:textStyle="italic"
         android:typeface="normal"
+        android:gravity="center"
         android:visibility="visible" />
 
 </FrameLayout>

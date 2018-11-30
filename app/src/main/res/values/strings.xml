@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Cafe A Un Euro</string>
-
     <string name="title_activity_maps">Map</string>
     <string name="map_activity">Map Activity</string>
     <string name="image_de_cafee">image de cafee</string>
@@ -8,5 +7,5 @@
     <string name="map">MAP</string>
     <string name="info">Info</string>
     <string name="list">List</string>
-    <string name="apptextdescription">Voici l’application qui vous permet de trouver les cafés les moins chers de Paris. Vous pouvez désormais prendre un moment pour vous, relaxant et redynamisant, qui égaiera votre journée en beauté. Et tout ça au prix le plus réduit ! With Coffee and Love, Hugo et Corentin. \n. L'application récupère les données depuis une base FireBase. Firebase a été implémenté avec le fichier JSON récupéré sur le site du gouvernement afin de crée une "base de donnée en ligne".</string>
+    <string name="apptextdescription">Voici l’application qui vous permet de trouver les cafés les moins chers de Paris. Vous pouvez désormais prendre un moment pour vous, relaxant et redynamisant, qui égaiera votre journée en beauté. Et tout ça au prix le plus réduit ! With Coffee and Love, Hugo et Corentin. L application récupère les données depuis une base FireBase. Le fichier JSON récupéré récupéré sur le site du gouvernement a été importé sur FireBase afin de crée une base de donnée en ligne.</string>
 </resources>

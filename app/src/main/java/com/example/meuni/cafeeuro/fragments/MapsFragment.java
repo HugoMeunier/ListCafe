@@ -81,12 +81,11 @@ public class MapsFragment extends android.support.v4.app.Fragment implements OnM
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
+        LatLng location;
         map = googleMap;
         map.setIndoorEnabled(true);
         map.setTrafficEnabled(true);
         map.setBuildingsEnabled(true);
-        LatLng location = new LatLng(43.4445611, 5.4797210);
 
         Cafe caf;
         int n = cafes.size();
@@ -100,6 +99,7 @@ public class MapsFragment extends android.support.v4.app.Fragment implements OnM
             }
         }
 
+        location = new LatLng(48.821669, 2.339265);
         map.moveCamera(CameraUpdateFactory.newLatLng(location));
         map.moveCamera(CameraUpdateFactory.zoomTo(12));
         map.setOnMarkerClickListener(this);

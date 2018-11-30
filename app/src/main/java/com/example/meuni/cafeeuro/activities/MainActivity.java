@@ -58,6 +58,10 @@ public class MainActivity extends AppCompatActivity implements MapsFragmentListe
         btnInfo.setVisibility(View.VISIBLE);
         btnMap.setVisibility(View.VISIBLE);
 
+        //affichage Fragment initial
+        infoFragment = new InfoFragment();
+        replaceFragment(infoFragment);
+
         //communication avec FireBase
         database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(PATH);
