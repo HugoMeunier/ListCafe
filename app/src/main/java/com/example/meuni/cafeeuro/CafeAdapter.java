@@ -1,25 +1,16 @@
 package com.example.meuni.cafeeuro;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.meuni.cafeeuro.models.Cafe;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 
 import static java.lang.String.valueOf;
@@ -50,7 +41,7 @@ public class CafeAdapter extends RecyclerView.Adapter<CafeViewHolder> {
         holder.cafePlace.setText(valueOf(iconToDisplay.getFields().getArrondissement()));
         holder.cafePrice.setText(String.format("%s €", valueOf(iconToDisplay.getFields().getPrix_compotoire())));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            Picasso.get().load("https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/280px-A_small_cup_of_coffee.JPG").placeholder(R.drawable.ic_launcher_background).resize(70,70)
+            Picasso.get().load("https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/280px-A_small_cup_of_coffee.JPG").placeholder(R.drawable.ic_launcher_background).resize(70, 70)
                     .centerCrop().into(holder.cafeImage);
         }
     }

@@ -6,11 +6,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Geometry implements Serializable{
+public class Geometry implements Serializable {
 
     private List<Integer> coordinates;
     private String type;
-
 
 
     public Geometry() {

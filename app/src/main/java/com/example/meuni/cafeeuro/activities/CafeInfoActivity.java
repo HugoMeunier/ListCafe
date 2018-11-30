@@ -1,9 +1,10 @@
-package com.example.meuni.cafeeuro;
+package com.example.meuni.cafeeuro.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.example.meuni.cafeeuro.R;
 import com.example.meuni.cafeeuro.models.Cafe;
 
 public class CafeInfoActivity extends AppCompatActivity {
@@ -19,15 +20,10 @@ public class CafeInfoActivity extends AppCompatActivity {
 
         cafe.getFields().getArrondissement();
 
-
-
         setContentView(R.layout.activity_cafeinfo);
-
-
 
         TextView nameTextView = findViewById(R.id.name);
         nameTextView.setText(cafe.getFields().getNom_du_cafe());
-
 
         TextView adresseTextView = findViewById(R.id.adresse);
         adresseTextView.setText(cafe.getFields().getAdresse());
@@ -38,13 +34,8 @@ public class CafeInfoActivity extends AppCompatActivity {
         TextView prixTextView = findViewById(R.id.prix);
         prixTextView.setText(cafe.getFields().getPrix_compotoire() + "€");
 
-
         TextView linkTextView = findViewById(R.id.lien);
         linkTextView.setText("Coming soon !!");
-
-
-
-
     }
 }
 

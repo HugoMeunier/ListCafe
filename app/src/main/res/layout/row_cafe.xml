@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/imageCoffee"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="0dp"
         android:contentDescription="@string/image_de_cafee"
         android:visibility="visible"
@@ -17,12 +17,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@android:drawable/btn_star_big_on"
         tools:srcCompat="@tools:sample/avatars[1]" />
 
     <TextView
         android:id="@+id/TextCafeName"
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="0dp"
         android:fadingEdge="horizontal|vertical"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -31,28 +30,28 @@
         app:layout_constraintStart_toEndOf="@+id/imageCoffee"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="bonjour" />
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/TextCafePlace"
-        android:layout_width="wrap_content"
+        android:layout_width="75dp"
         android:layout_height="0dp"
-        android:textColor="@color/colorAccent"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/TextCafePrice"
         app:layout_constraintStart_toEndOf="@+id/TextCafeName"
         app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/TextCafePrice"
-        android:layout_width="wrap_content"
+        android:layout_width="52dp"
         android:layout_height="0dp"
-        android:textColor="@color/colorAccent"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TextCafePlace"

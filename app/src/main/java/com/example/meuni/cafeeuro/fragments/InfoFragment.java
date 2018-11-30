@@ -1,13 +1,12 @@
-package com.example.meuni.cafeeuro;
+package com.example.meuni.cafeeuro.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.meuni.cafeeuro.R;
 
 
 public class InfoFragment extends android.support.v4.app.Fragment {
@@ -15,6 +14,7 @@ public class InfoFragment extends android.support.v4.app.Fragment {
     public InfoFragment() {
         // Required empty public constructor
     }
+
     //database
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,9 +22,7 @@ public class InfoFragment extends android.support.v4.app.Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_info, container, false);
     }
 

@@ -6,13 +6,14 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
+//utiliser pour récupérer les cafés de la base de donnée
 public class ListCafe {
 
     @SerializedName("listCafe")
     @Expose
     private List<Cafe> listCafe;
 
-    public ListCafe(){
+    public ListCafe() {
         listCafe = new ArrayList<>();
     }
 
@@ -24,7 +25,9 @@ public class ListCafe {
         this.listCafe = listCafe;
     }
 
-    public void addCafe(Cafe cafe){listCafe.add(cafe);}
+    public void addCafe(Cafe cafe) {
+        listCafe.add(cafe);
+    }
 
     @Override
     public String toString() {

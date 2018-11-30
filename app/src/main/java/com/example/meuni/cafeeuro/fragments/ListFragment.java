@@ -1,29 +1,22 @@
-package com.example.meuni.cafeeuro;
+package com.example.meuni.cafeeuro.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
+import com.example.meuni.cafeeuro.CafeAdapter;
+import com.example.meuni.cafeeuro.R;
 import com.example.meuni.cafeeuro.models.Cafe;
 
 import java.util.ArrayList;
 
 
-public class ListFragment extends  android.support.v4.app.Fragment {
+public class ListFragment extends android.support.v4.app.Fragment {
 
     private static final String ARG_PARAM1 = "param1";
-
     private ArrayList<Cafe> cafes = new ArrayList<>();
 
     public ListFragment() {
@@ -53,7 +46,6 @@ public class ListFragment extends  android.support.v4.app.Fragment {
         //get an adapter and assign it to the recycle view
         CafeAdapter cafeAdapter = new CafeAdapter(cafes);
         rcvBottles.setAdapter(cafeAdapter);
-
         return view;
     }
 

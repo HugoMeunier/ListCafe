@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+//class de notre objet Cafe. Calqué sur notre format de JSON
 @Entity(tableName = "cafe")
 public class Cafe implements Serializable {
 

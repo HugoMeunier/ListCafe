@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Fields implements Serializable{
+public class Fields implements Serializable {
 
     private String adresse;
     private int arrondissement;

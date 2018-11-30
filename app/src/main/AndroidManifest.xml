@@ -20,7 +20,7 @@
         android:roundIcon="@mipmap/ic_launcher_cofe_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,7 +41,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
         <activity
-            android:name=".CafeInfoActivity"
+            android:name=".activities.CafeInfoActivity"
            />
 
     </application>

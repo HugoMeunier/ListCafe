@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".activities.MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
     <Button
@@ -55,20 +55,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextEditResult">
+        app:layout_constraintTop_toBottomOf="@+id/buttonInfo">
 
     </FrameLayout>
-
-    <TextView
-        android:id="@+id/TextEditResult"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/textview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonInfo"></TextView>
 
 
 </android.support.constraint.ConstraintLayout>
